@@ -1,0 +1,9 @@
+bin/
+obj/
+publish/
+release/
+*.user
+probe-result.json
+set-result.json
+install-*.log
+install-result.log

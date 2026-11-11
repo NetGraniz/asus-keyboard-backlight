@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>AsusKeyboardBacklight</AssemblyName>
+    <RootNamespace>AsusKeyboardBacklight</RootNamespace>
+    <Version>1.0.0</Version>
+    <Product>ASUS Keyboard Backlight</Product>
+    <Description>Automatically controls the ASUS laptop keyboard backlight based on user activity.</Description>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Management" Version="10.0.14" />
+  </ItemGroup>
+</Project>
