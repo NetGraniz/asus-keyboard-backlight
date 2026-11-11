@@ -1,32 +1,59 @@
+
 # ASUS Keyboard Backlight
 
-Небольшая фоновая программа для ASUS Vivobook X1504ZA. Она включает подсветку клавиатуры при активности пользователя и выключает её после заданного времени бездействия.
+A lightweight background application for the ASUS Vivobook X1504ZA. It automatically turns on the keyboard backlight when user activity is detected and turns it off after a configurable period of inactivity.
 
-## Управление
+## Controls
 
-Программа работает через значок в системном трее. В меню доступны:
+The application runs in the system tray. Right-click the tray icon to access the following options:
 
-- `Automation enabled` — включить или приостановить автоматику;
-- `Turn off after` — задержка отключения;
-- `Brightness` — уровень яркости;
-- `Turn on now` — включить автоматику и подсветку;
-- `Pause and turn off` — приостановить автоматику и выключить свет;
-- `Exit` — закрыть программу до следующего входа в Windows.
+- `Automation enabled` — enable or pause automatic backlight control.
+- `Turn off after` — configure the inactivity timeout.
+- `Brightness` — adjust the backlight brightness.
+- `Turn on now` — enable automation and turn on the backlight immediately.
+- `Pause and turn off` — pause automation and turn off the backlight.
+- `Exit` — close the application until the next Windows sign-in.
 
-Настройки хранятся в `%LOCALAPPDATA%\AsusKeyboardBacklight\settings.json`.
+Settings are stored in:
 
-Доступные задержки: 10, 20, 30 секунд, 1, 2, 5 и 10 минут.
+`%LOCALAPPDATA%\AsusKeyboardBacklight\settings.json`
 
-## Установка
+**Available inactivity timeouts:** 10, 20, 30 seconds, 1, 2, 5, and 10 minutes.
 
-Скачайте архив релиза, распакуйте его и запустите `install.ps1`. Подтвердите запрос UAC. Скрипт копирует исполняемый файл в `%LOCALAPPDATA%\Programs\AsusKeyboardBacklight` и создаёт задачу автозапуска `ASUS Keyboard Backlight` с повышенными правами.
+## Installation
 
-## Удаление
+1. Download the latest release archive.
+2. Extract the archive.
+3. Run `install.ps1`.
+4. Approve the UAC prompt when requested.
 
-Запустите `uninstall.ps1` от имени администратора. Настройки пользователя при удалении сохраняются.
+The installation script copies the executable to:
 
-## Совместимость
+`%LOCALAPPDATA%\Programs\AsusKeyboardBacklight`
 
-Приложение использует ASUS WMI device `0x00050021`, предварительно проверенный на этом ноутбуке. Для определения бездействия используется штатный Win32 API `GetLastInputInfo`.
+It also creates a scheduled task named `ASUS Keyboard Backlight` that automatically launches the application with elevated privileges when you sign in to Windows.
 
-Подтверждённая модель: ASUS Vivobook X1504ZA с ASUS System Control Interface v3. На других моделях ASUS тот же WMI-интерфейс может отсутствовать, поэтому установка выполняется на свой риск.
+## Uninstallation
+
+Run `uninstall.ps1` as administrator.
+
+**Note:** Your user settings will be preserved after uninstallation.
+
+## Compatibility
+
+The application uses the ASUS WMI device `0x00050021`, which has been tested and verified on the supported laptop.
+
+User inactivity is detected using the native Windows Win32 API `GetLastInputInfo`.
+
+### Tested Configuration
+
+- **Laptop:** ASUS Vivobook X1504ZA
+- **Driver:** ASUS System Control Interface v3
+- **Status:** Confirmed working
+
+### Disclaimer
+
+> [!WARNING]
+> The same WMI interface may not be available on other ASUS models.
+> Compatibility with other devices is not guaranteed.
+> **Use on unsupported models at your own risk.**
